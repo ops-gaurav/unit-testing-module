@@ -6,8 +6,8 @@ var UserModel = {};
 /**
  * the user schemaq	
  */
-var User = sequelize.define ({
-	id: { type: Sequelize.STRING, unique: true, autoIncrement: true },
+var User = sequelize.define ('user', {
+	id: { type: Sequelize.STRING, unique: true, autoIncrement: true, primaryKey: true },
 	name: Sequelize.STRING,
 	password: Sequelize.STRING
 });

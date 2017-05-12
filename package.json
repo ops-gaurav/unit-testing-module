@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "mocha tests/**/**.js",
-    "start": "babel-node index.js"
+    "test": "mocha tests/*.js",
+    "start": "babel-node server.js"
   },
   "keywords": [],
   "author": "",
@@ -19,8 +19,12 @@
     "mocha": "^3.3.0"
   },
   "dependencies": {
+    "body-parser": "^1.17.1",
+    "chai-http": "^3.0.0",
     "knex": "^0.13.0",
+    "morgan": "^1.8.1",
     "mysql": "^2.13.0",
+    "request": "^2.81.0",
     "sequelize": "^3.30.4"
   }
 }
