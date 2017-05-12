@@ -1,11 +1,7 @@
-var express = require( 'express');
+var router = require ('express').Router();
+var controller = require ('../services/AccountService');
+// const router = express.Router();
 
-const router = express.Router();
-
-// router.post ('/authenticate');
-// router.post ('/create');
-// router.post ('/fetch');
-// router.post ('');
-
+router.post ('/auth', controller.authenticate);	
 
 module.exports = router;

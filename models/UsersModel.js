@@ -6,8 +6,8 @@ var UserModel = {};
 /**
  * the user schemaq	
  */
-var User = sequelize.define ('user', {
-	id: { type: Sequelize.STRING, unique: true, autoIncrement: true, primaryKey: true },
+var User = sequelize.define ('users', {
+	id: { type: Sequelize.INT, unique: true, autoIncrement: true, primaryKey: true },
 	name: Sequelize.STRING,
 	password: Sequelize.STRING
 });
@@ -23,6 +23,18 @@ UserModel.create = ( userData ) => {
 		});
 	});
 }
+
+/**
+ * finding the user by id
+ */
+UserModel.findById = (id) => {
+	User.findAll ({
+		where: {
+			id: id
+		}
+	});
+}
+
 
 
 module.exports = UserModel;

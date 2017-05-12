@@ -12,7 +12,8 @@ var AccountService = require ('../services/AccountService'),
 	should = chai.should(),
 	server = require ('../server'),
     db = require ('../db'),
-    inputs = require ('./inputs/test-inputs');
+    inputs = require ('./inputs/test-inputs'),
+    httpMocks = require ('node-mocks-http');
 
 
 chai.use (chaiHttp);
@@ -40,16 +41,24 @@ describe ('The AccountService testing', () => {
          */
         it ('should validate the json response from server', (done) => {
             
-            chai.request (server).post (inputs.baseUrl+'auth', inputs.authInputs)
+            chai.request (server).post ('/api/account/auth', inputs.authInputs)
                 .end ((err, res) => {
+                    // if (err) console.error (err);
                     res.should.have.status (200);
                     res.body.should.be.a ('object');
-
+                    res.body.authenticated.should.be.a ('boolean');
+                    res.body.message.should.equal ('authenticated');
                     done();
                 });
-
         })
-
-
+        
     });
+
+
+    /**
+     * Test Speciication to check creation of new user
+     */
+    describe ('Checking "Create user" function', () => {
+
+    })
 });
